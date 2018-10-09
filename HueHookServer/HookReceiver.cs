@@ -51,7 +51,14 @@ namespace Rca.HueHookServer
                     Console.ResetColor();
 
                     var cmd = new LightCommand();
-                    cmd.On = bool.Parse(parameters["on"]);
+                    if (parameters.AllKeys.Contains("on"))
+                        cmd.On = bool.Parse(parameters["on"]);
+                    if (parameters.AllKeys.Contains("sat"))
+                        cmd.Saturation = int.Parse(parameters["sat"]);
+                    if (parameters.AllKeys.Contains("hue"))
+                        cmd.Hue = int.Parse(parameters["hue"]);
+                    if (parameters.AllKeys.Contains("bri"))
+                        cmd.Brightness = byte.Parse(parameters["bri"]);
 
                     Hue.Client.SendCommandAsync(cmd, new List<string>() { parameters["id"] });
                 }
