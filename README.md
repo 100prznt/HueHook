@@ -26,3 +26,24 @@ Call the urls described below, each url starts with the address (ip and port) an
 
 #### Example
 The url `http://192.168.0.1/light.hue?id=1&on=1&bri=127` means, switch on the light with id 1 and setup the brightness to a value of 127.
+
+
+## Credits
+
+* **Elias Ruemmler** - *Initial work* - [rmmlr](https://github.com/rmmlr)
+
+Under [Contributors](https://github.com/rmmlr/Hue2Json/contributors) you can see more project supporter.
+
+### Open Source Project Credits
+
+* [Q42.HueApi](https://github.com/Q42/Q42.HueApi) Bedienung der Hue-API
+* [Newtonsoft.Json](https://www.newtonsoft.com/json) Parameter-Serialisierung und Deserialisierung der Hue-API Antworten
+* [Newtonsoft.Json.Bson](https://www.newtonsoft.com/json) AppKey-Serialisierung
+* [UIkit](https://github.com/uikit/uikit) Parameter-Visualisierung
+
+## License
+
+This project (HueHook) is licensed under  [MIT License](http://www.opensource.org/licenses/mit-license.php "Read more about the MIT license form").  
+Refer to [LICENSE](https://github.com/rmmlr/Hue2Json/blob/master/LICENSE.txt) for more information.
+
+[![license](https://img.shields.io/github/license/rmmlr/Hue2Json.svg)](https://github.com/rmmlr/Hue2Json/blob/master/LICENSE.txt) 
