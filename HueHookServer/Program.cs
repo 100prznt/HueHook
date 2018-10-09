@@ -30,7 +30,9 @@ namespace Rca.HueHookServer
 
             }
 
-            if (IPAddress.TryParse(args[0], out IPAddress bridgeIp))
+            IPAddress bridgeIp = null;
+
+            if (IPAddress.TryParse(args[0], out bridgeIp))
             {
                 m_HueClient.ConnectBridge(bridgeIp, args[1]);
             }
