@@ -31,11 +31,11 @@ The url `http://192.168.0.1/light.hue?id=1&on=1&bri=127` means, switch on the li
 ## Releases
 This project build on the continuous integration (CI) platform [AppVeyor](https://www.appveyor.com/) and released in the [Release-Feed](https://github.com/rmmlr/HueHook/releases).
 
-[![AppVeyor Build](https://img.shields.io/appveyor/ci/rmmlr/HueHook.svg)](https://ci.appveyor.com/project/rmmlr/HueHook)  
+[![AppVeyor Build](https://img.shields.io/appveyor/ci/rmmlr/huehook.svg)](https://ci.appveyor.com/project/rmmlr/huehook)  
 [![AppVeyor Tests](https://img.shields.io/appveyor/tests/rmmlr/HueHook/master.svg)](https://ci.appveyor.com/project/rmmlr/HueHook/build/tests)
 
-[![GitHub Release](https://img.shields.io/github/release/rmmlr/HueHook.svg)](https://github.com/rmmlr/HueHook/releases/latest)  
-[![GitHub (Pre-)Release](https://img.shields.io/github/release/rmmlr/HueHook/all.svg)](https://github.com/rmmlr/HueHook/releases) (Pre-)Release
+[![GitHub Release](https://img.shields.io/github/release/rmmlr/huehook.svg)](https://github.com/rmmlr/huehook/releases/latest)  
+[![GitHub (Pre-)Release](https://img.shields.io/github/release/rmmlr/huehook/all.svg)](https://github.com/rmmlr/huehook/releases) (Pre-)Release
 
 
 
