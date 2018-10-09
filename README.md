@@ -13,5 +13,10 @@ After successfully initialization the programm prints the server address (ip and
 
 ### Use the program
 
-#### Light
-To control a single light you must call 'http://192.168.0.1/light.hue'
+Call the urls described below, each url starts with the address (ip and port):
+
+|  |Light|Group|Scene|
+|--|-----|-----|-----|
+|id|     |     |     |
+|on|     |     |     |
+
