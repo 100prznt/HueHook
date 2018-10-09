@@ -19,7 +19,7 @@ Call the urls described below, each url starts with the address (ip and port) an
 |---|---------|:----------------:|:----------------:|:----------------:|
 |url|         |`/light.hue`      |`/group.hue`      |`/scene.hue`      |
 |id |0 - 254  |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|on |0, 1     |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|on |0, 1     |:heavy_check_mark:|:heavy_check_mark:|:x:               |
 |hue|0 - 65535|:heavy_check_mark:|:heavy_check_mark:|:x:               |
 |sat|0 - 254  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
 |bri|0 - 254  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
