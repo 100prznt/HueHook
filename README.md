@@ -13,10 +13,14 @@ After successfully initialization the programm prints the server address (ip and
 
 ### Use the program
 
-Call the urls described below, each url starts with the address (ip and port):
+Call the urls described below, each url starts with the address (ip and port) and have some optional parameters:
 
-|  |Light|Group|Scene|
-|--|-----|-----|-----|
-|id|     |     |     |
-|on|     |     |     |
+|   |Light             |Group             |Scene             |
+|---|------------------|------------------|------------------|
+|url|`/light.hue`      |`/group.hue`      |`/scene.hue`      |
+|id |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|on |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|hue|:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|sat|:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|bri|:heavy_check_mark:|:heavy_check_mark:|:x:               |
 
