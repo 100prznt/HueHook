@@ -15,14 +15,14 @@ After successfully initialization the programm prints the server address (ip and
 
 Call the urls described below, each url starts with the address (ip and port) and have some optional parameters:
 
-|   |Value  |Light             |Group             |Scene             |
-|---|-------|:----------------:|:----------------:|:----------------:|
-|url|       |`/light.hue`      |`/group.hue`      |`/scene.hue`      |
-|id |0 - 254|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|on |0, 1   |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|hue|0 - 254|:heavy_check_mark:|:heavy_check_mark:|:x:               |
-|sat|0 - 254|:heavy_check_mark:|:heavy_check_mark:|:x:               |
-|bri|0 - 254|:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|   |Value    |Light             |Group             |Scene             |
+|---|---------|:----------------:|:----------------:|:----------------:|
+|url|         |`/light.hue`      |`/group.hue`      |`/scene.hue`      |
+|id |0 - 254  |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|on |0, 1     |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|hue|0 - 65535|:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|sat|0 - 254  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|bri|0 - 254  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
 
 #### Example
 The url `http://192.168.0.1/light.hue?id=1&on=1&bri=127` means, switch on the light with id 1 and setup the brightness to a value of 127.
