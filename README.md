@@ -28,6 +28,17 @@ Call the urls described below, each url starts with the address (ip and port) an
 The url `http://192.168.0.1/light.hue?id=1&on=1&bri=127` means, switch on the light with id 1 and setup the brightness to a value of 127.
 
 
+## Releases
+This project build on the Continuous Integration Plattform [AppVeyor](https://www.appveyor.com/) and released in the [Release-Feed](https://github.com/rmmlr/HueHook/releases).
+
+[![AppVeyor Build](https://img.shields.io/appveyor/ci/rmmlr/HueHook.svg)](https://ci.appveyor.com/project/rmmlr/HueHook)  
+[![AppVeyor Tests](https://img.shields.io/appveyor/tests/rmmlr/HueHook/master.svg)](https://ci.appveyor.com/project/rmmlr/HueHook/build/tests)
+
+[![GitHub Release](https://img.shields.io/github/release/rmmlr/HueHook.svg)](https://github.com/rmmlr/HueHook/releases/latest)  
+[![GitHub (Pre-)Release](https://img.shields.io/github/release/rmmlr/HueHook/all.svg)](https://github.com/rmmlr/HueHook/releases) (Pre-)Release
+
+
+
 ## Credits
 
 * **Elias Ruemmler** - *Initial work* - [rmmlr](https://github.com/rmmlr)
