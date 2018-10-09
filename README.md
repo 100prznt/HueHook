@@ -1,3 +1,9 @@
+## Project has no stable release yet :construction:
+
+This project is in a early develop phase (10/09/2018).
+
+---
+
 # HueHook
 Control your Philips Hue system with simple url calls, POST parameters are not needed.
 
