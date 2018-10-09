@@ -41,6 +41,6 @@ Under [Contributors](https://github.com/rmmlr/Hue2Json/contributors) you can see
 ## License
 
 This project (HueHook) is licensed under  [MIT License](http://www.opensource.org/licenses/mit-license.php "Read more about the MIT license form").  
-Refer to [LICENSE](https://github.com/rmmlr/Hue2Json/blob/master/LICENSE.txt) for more information.
+Refer to [LICENSE](https://github.com/rmmlr/HueHook/blob/master/LICENSE.txt) for more information.
 
-[![license](https://img.shields.io/github/license/rmmlr/Hue2Json.svg)](https://github.com/rmmlr/Hue2Json/blob/master/LICENSE.txt) 
+[![license](https://img.shields.io/github/license/rmmlr/HueHook.svg)](https://github.com/rmmlr/HueHook/blob/master/LICENSE.txt) 
