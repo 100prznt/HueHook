@@ -24,3 +24,5 @@ Call the urls described below, each url starts with the address (ip and port) an
 |sat|:heavy_check_mark:|:heavy_check_mark:|:x:               |
 |bri|:heavy_check_mark:|:heavy_check_mark:|:x:               |
 
+#### Example
+The url `http://192.168.0.1/light.hue?id=1&on=1&bri=127` means, switch on the light with id 1 and setup the brightness to a value of 127.
