@@ -43,7 +43,7 @@ This project build on the continuous integration (CI) platform [AppVeyor](https:
 
 * **Elias Ruemmler** - *Initial work* - [rmmlr](https://github.com/rmmlr)
 
-Under [Contributors](https://github.com/rmmlr/Hue2Json/contributors) you can see more project supporter.
+Under [Contributors](https://github.com/rmmlr/HueHook/contributors) you can see more project supporter.
 
 ### Open Source Project Credits
 
