@@ -6,8 +6,8 @@ Control your Philips Hue system with simple url calls, POST parameters are not n
 
 ### Start the program
 Run the HueHookServer.exe with 2 start parameters.
-* 1. parameter: IP of the hue-bridge
-* 2. parameter: authorized user-id
+* parameter 1: IP of the hue-bridge
+* parameter 2: authorized user-id
 
 After successfully initialization the programm prints the server address (ip and port).
 
