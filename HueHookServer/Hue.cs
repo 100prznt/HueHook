@@ -40,10 +40,8 @@ namespace Rca.HueHookServer
 
             var bridge = await Client.GetBridgeAsync();
 
-            Console.WriteLine("Hue bridge is connected.");
+            Console.WriteLine("Hue bridge is successfully connected.");
             Console.WriteLine("Name: {0}", bridge.Config.Name);
-            Console.WriteLine();
-            Console.WriteLine();
         }
 
         #endregion Services
