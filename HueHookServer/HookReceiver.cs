@@ -42,6 +42,16 @@ namespace Rca.HueHookServer
         {
             try
             {
+                var remoteIp = getRemoteIp(p);
+                Console.WriteLine("remote endpoint IP: " + remoteIp);
+
+                if (!IPAddress.Equals(Program.ServerIp, remoteIp))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Access denied, remote IP not allowed!");
+                    Console.ResetColor();
+                }
+
                 if (p.HttpUrl.StartsWith("/favicon.ico")) //many browsers ask for favicon.ico
                 {
                     p.WriteFailure();
@@ -127,6 +137,13 @@ namespace Rca.HueHookServer
 
         #region Internal services
         
+        IPAddress getRemoteIp(HttpProcessor p)
+        {
+            if (p.Socket.Client.RemoteEndPoint.GetType() == typeof(IPEndPoint))
+                return ((IPEndPoint)p.Socket.Client.RemoteEndPoint).Address;
+            else
+                return null;
+        }
         
         #endregion Internal services
 
@@ -171,7 +188,7 @@ namespace Rca.HueHookServer
             }
             if (parameters.AllKeys.Contains("ct"))
             {
-                cmd.ColorTemperature = byte.Parse(parameters["ct"]);
+                cmd.ColorTemperature = int.Parse(parameters["ct"]);
                 Console.WriteLine("ColorTemperature: {0}", cmd.ColorTemperature);
             }
 

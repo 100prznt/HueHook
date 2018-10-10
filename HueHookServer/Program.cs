@@ -8,8 +8,10 @@ using System.Threading;
 
 namespace Rca.HueHookServer
 {
-    class Program
+    public class Program
     {
+        public static IPAddress ServerIp;
+
         static int Main(string[] args)
         {
             //Default-Port (8008 HTTP-Alternativ)
@@ -129,6 +131,7 @@ namespace Rca.HueHookServer
             Console.WriteLine();
             #endregion
 
+            ServerIp = ip;
 
             HttpServer httpServer = new HookReceiver(ip, port);
 
