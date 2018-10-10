@@ -23,7 +23,7 @@ Call the urls described below, each url starts with the address (ip and port) an
 
 |Description|CMD|Value    |Light             |Group             |Scene             |
 |-----------|---|---------|:----------------:|:----------------:|:----------------:|
-|URL        |   |`\*.hue` |`/light.hue`      |`/group.hue`      |`/scene.hue`      |
+|URL        |   |`*.hue` |`/light.hue`      |`/group.hue`      |`/scene.hue`      |
 |ID         |id |0 - 254  |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |On state   |on |0, 1     |:heavy_check_mark:|:heavy_check_mark:|:x:               |
 |Hue        |hue|0 - 65535|:heavy_check_mark:|:heavy_check_mark:|:x:               |
