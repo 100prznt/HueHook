@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
 [assembly: AssemblyTitle("HueHookServer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Control your Philips Hue system with simple HTTP GET requests.\nFor more informations visit: https://github.com/rmmlr/HueHook")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("RC-Art Solutions")]
 [assembly: AssemblyProduct("HueHookServer")]

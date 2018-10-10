@@ -2,6 +2,7 @@
 using SmartHttpServer;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -41,57 +42,67 @@ namespace Rca.HueHookServer
         {
             try
             {
-                if (p.HttpUrl.StartsWith("/light.hue"))
+                if (p.HttpUrl.StartsWith("/favicon.ico")) //many browsers ask for favicon.ico
+                {
+                    p.WriteFailure();
+
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("/favicon.ico");
+                    Console.ResetColor();
+                    Console.WriteLine("HTTP/1.0 404 File not found");
+
+                    return;
+                }
+                else if (p.HttpUrl.StartsWith("/light.hue"))
                 {
                     //parsing GET parameters
                     var parameters = HttpUtility.ParseQueryString(p.HttpUrl.Split('?').Last());
 
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("Call for hue-light with id: {0}", parameters["id"]);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("/light.hue");
                     Console.ResetColor();
 
-                    var cmd = new LightCommand();
-                    if (parameters.AllKeys.Contains("on"))
-                        cmd.On = bool.Parse(parameters["on"]);
-                    if (parameters.AllKeys.Contains("sat"))
-                        cmd.Saturation = int.Parse(parameters["sat"]);
-                    if (parameters.AllKeys.Contains("hue"))
-                        cmd.Hue = int.Parse(parameters["hue"]);
-                    if (parameters.AllKeys.Contains("bri"))
-                        cmd.Brightness = byte.Parse(parameters["bri"]);
+                    var cmd = parameters.ToLightCommand();
 
                     Hue.Client.SendCommandAsync(cmd, new List<string>() { parameters["id"] });
                 }
                 else if (p.HttpUrl.StartsWith("/group.hue"))
                 {
-                    throw new NotImplementedException();
                     //parsing GET parameters
                     var parameters = HttpUtility.ParseQueryString(p.HttpUrl.Split('?').Last());
 
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("Call for hue-group with id: {0}", parameters["id"]);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("/group.hue");
                     Console.ResetColor();
+
+                    var cmd = parameters.ToLightCommand();
+
+                    Hue.Client.SendGroupCommandAsync(cmd, parameters["id"]);
                 }
                 else if (p.HttpUrl.StartsWith("/scene.hue"))
                 {
-                    throw new NotImplementedException();
                     //parsing GET parameters
                     var parameters = HttpUtility.ParseQueryString(p.HttpUrl.Split('?').Last());
 
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("Call for hue-scene with id: {0}", parameters["id"]);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("/scene.hue");
                     Console.ResetColor();
+
+
+                    Hue.Client.RecallSceneAsync(parameters["id"]);
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Invalid call!");
+                    Console.WriteLine("Invalid call: {0}", p.HttpUrl);
                     Console.ResetColor();
 
+                    p.OutputStream.Write("failure");
                     p.WriteFailure();
                     return;
                 }
 
+                p.WriteSuccess();
                 p.OutputStream.Write("success");
 
             }
@@ -117,12 +128,56 @@ namespace Rca.HueHookServer
         #region Internal services
         
         
-
         #endregion Internal services
 
         #region Events
 
 
         #endregion Events
+    }
+
+    public static class NameValueCollectionExtensions
+    {
+        public static LightCommand ToLightCommand(this NameValueCollection parameters)
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+
+            Console.WriteLine("Id:               {0}", parameters["id"]);
+
+            var cmd = new LightCommand()
+            {
+                Effect = Effect.None
+            };
+
+            if (parameters.AllKeys.Contains("on"))
+            {
+                cmd.On = bool.Parse(parameters["on"]);
+                Console.WriteLine("On:               {0}", cmd.On);
+            }
+            if (parameters.AllKeys.Contains("sat"))
+            {
+                cmd.Saturation = int.Parse(parameters["sat"]);
+                Console.WriteLine("Saturation:       {0}", cmd.Saturation);
+            }
+            if (parameters.AllKeys.Contains("hue"))
+            {
+                cmd.Hue = int.Parse(parameters["hue"]);
+                Console.WriteLine("Hue:              {0}", cmd.Hue);
+            }
+            if (parameters.AllKeys.Contains("bri"))
+            {
+                cmd.Brightness = byte.Parse(parameters["bri"]);
+                Console.WriteLine("Brightness:       {0}", cmd.Brightness);
+            }
+            if (parameters.AllKeys.Contains("ct"))
+            {
+                cmd.ColorTemperature = byte.Parse(parameters["ct"]);
+                Console.WriteLine("ColorTemperature: {0}", cmd.ColorTemperature);
+            }
+
+            Console.ResetColor();
+
+            return cmd;
+        }
     }
 }

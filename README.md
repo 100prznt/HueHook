@@ -5,7 +5,7 @@ This project is in a early develop phase (10/09/2018).
 ---
 
 # HueHook
-Control your Philips Hue system with simple url calls, POST parameters are not needed.
+Control your Philips Hue system with simple HTTP GET requests. POST parameters are not needed!
 
 
 ## How to use
@@ -15,20 +15,27 @@ Run the HueHookServer.exe with 2 start parameters.
 * parameter 1: IP of the hue-bridge
 * parameter 2: authorized user-id
 
+To obtain this parameters you can start the program with a shortcut. Append the parameters to the target path, e.g. `C:\path-to-program\HueHookServer.exe 192.168.0.1 my-app-key`.
+
 After successfully initialization the programm prints the server address (ip and port).
 
 ### Use the program
 
 Call the urls described below, each url starts with the address (ip and port) and have some optional parameters:
 
-|   |Value    |Light             |Group             |Scene             |
-|---|---------|:----------------:|:----------------:|:----------------:|
-|url|         |`/light.hue`      |`/group.hue`      |`/scene.hue`      |
-|id |0 - 254  |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|on |0, 1     |:heavy_check_mark:|:heavy_check_mark:|:x:               |
-|hue|0 - 65535|:heavy_check_mark:|:heavy_check_mark:|:x:               |
-|sat|0 - 254  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
-|bri|0 - 254  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|Description       |Name|Value      |Light             |Group             |Scene             |
+|------------------|----|-----------|:----------------:|:----------------:|:----------------:|
+|:warning: URL     |    |`/*.hue`   |`/light.hue`      |`/group.hue`      |`/scene.hue`      |
+|:warning: ID      |id  |0 - 254    |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|On state          |on  |0, 1       |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|Hue               |hue |0 - 65535  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|Saturation        |sat |0 - 254    |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|Brightness        |bri |0 - 254    |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|Color Temperature |ct  |153 - 500  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+
+:warning: required parameter &nbsp; :heavy_check_mark: parameter allowed &nbsp; :x: parameter not allowed
+
+The URL must at least be made up of the required parameters (:warning:). In addition, further allowed parameters (:heavy_check_mark:) can be appended. The parameters are appended to the URL as a query string (name/value pairs), see the example below.
 
 #### Example
 The url `http://192.168.0.1/light.hue?id=1&on=1&bri=127` means, switch on the light with id 1 and setup the brightness to a value of 127.

@@ -106,7 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HookReceiver.cs" />
-    <Compile Include="Client.cs" />
+    <Compile Include="Hue.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
