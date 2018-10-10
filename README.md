@@ -23,15 +23,15 @@ After successfully initialization the programm prints the server address (ip and
 
 Call the urls described below, each url starts with the address (ip and port) and have some optional parameters:
 
-|Description       |CMD|Value      |Light             |Group             |Scene             |
-|------------------|---|-----------|:----------------:|:----------------:|:----------------:|
-|:warning: URL     |   |`/*.hue`   |`/light.hue`      |`/group.hue`      |`/scene.hue`      |
-|:warning: ID      |id |0 - 254    |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|On state          |on |0, 1       |:heavy_check_mark:|:heavy_check_mark:|:x:               |
-|Hue               |hue|0 - 65535  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
-|Saturation        |sat|0 - 254    |:heavy_check_mark:|:heavy_check_mark:|:x:               |
-|Brightness        |bri|0 - 254    |:heavy_check_mark:|:heavy_check_mark:|:x:               |
-|Color Temperature |ct |153 - 500  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|Description       |Name|Value      |Light             |Group             |Scene             |
+|------------------|----|-----------|:----------------:|:----------------:|:----------------:|
+|:warning: URL     |    |`/*.hue`   |`/light.hue`      |`/group.hue`      |`/scene.hue`      |
+|:warning: ID      |id  |0 - 254    |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|On state          |on  |0, 1       |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|Hue               |hue |0 - 65535  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|Saturation        |sat |0 - 254    |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|Brightness        |bri |0 - 254    |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|Color Temperature |ct  |153 - 500  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
 
 :warning: required parameter &nbsp; :heavy_check_mark: parameter allowed &nbsp; :x: parameter not allowed
 
