@@ -43,8 +43,8 @@ The URL must at least be made up of the required parameters (:warning:). In addi
 The url `http://192.168.0.1/light.hue?id=1&on=1&bri=127` means, switch on the light with id 1 and setup the brightness to a value of 127.
 
 #### Security
-From version [1.0.14](https://github.com/rmmlr/HueHook/releases/tag/1.0.14) access is only allowed from the same computer on which the program is running.
-From version [1.0.15](https://github.com/rmmlr/HueHook/releases/tag/1.0.15) access is managed by a whitlist file, this file contains whitlisted ip-addresses (each per line). The file must be in the same directory as the program and named `ip-whitelist.txt`. An example you can find under [ExampleData](https://github.com/rmmlr/HueHook/blob/master/ExampleData).
+* From version [1.0.14](https://github.com/rmmlr/HueHook/releases/tag/1.0.14) access is only allowed from the same computer on which the program is running.
+* From version [1.0.15](https://github.com/rmmlr/HueHook/releases/tag/1.0.15) access is managed by a whitlist file, this file contains whitlisted ip-addresses (each per line). The file must be in the same directory as the program and named `ip-whitelist.txt`. An example you can find under [ExampleData](https://github.com/rmmlr/HueHook/blob/master/ExampleData).
 
 ## Releases
 This project build on the continuous integration (CI) platform [AppVeyor](https://www.appveyor.com/) and released in the [Release-Feed](https://github.com/rmmlr/HueHook/releases).
