@@ -1,7 +1,9 @@
 ﻿using SmartHttpServer;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Threading;
 
 namespace Rca.HueHookServer
@@ -13,8 +15,32 @@ namespace Rca.HueHookServer
             //Default-Port (8008 HTTP-Alternativ)
             const int port = 8008;
 
-            Hue m_HueClient = new Hue(); 
+            Hue m_HueClient = new Hue();
 
+
+            #region Startup
+
+            var versionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
+            var attribute = Assembly.GetExecutingAssembly()
+                    .GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false)
+                    .Cast<AssemblyDescriptionAttribute>().FirstOrDefault();
+
+            Console.WriteLine();
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            //Console.WriteLine("{0} v{1}", typeof(Program).Assembly.GetName().Name, typeof(Program).Assembly.GetName().Version);
+            Console.WriteLine("{0} v{1}", versionInfo.ProductName, versionInfo.ProductVersion);
+            Console.ResetColor();
+            if (attribute != null)
+                Console.WriteLine(attribute.Description);
+            Console.WriteLine();
+            Console.WriteLine(versionInfo.LegalCopyright);
+            for (int i = 0; i < 70; i++)
+                Console.Write("-");
+            Console.WriteLine();
+            Console.WriteLine();
+
+            #endregion
 
             #region Init hue client
             if (args.Length != 2)
@@ -34,7 +60,9 @@ namespace Rca.HueHookServer
 
             if (IPAddress.TryParse(args[0], out bridgeIp))
             {
+                Console.WriteLine("Connect hue bridge at: {0}", bridgeIp);
                 m_HueClient.ConnectBridge(bridgeIp, args[1]);
+                Thread.Sleep(2500);
             }
             else
             {
@@ -46,12 +74,13 @@ namespace Rca.HueHookServer
             }
             #endregion
 
+
             #region init server
+            Console.WriteLine("Start local HTTP server.");
+
             IPAddress[] ipv4Addresses = Array.FindAll(Dns.GetHostEntry(string.Empty).AddressList, a => a.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork);
             var ip = IPAddress.Parse("127.0.0.1");
 
-            Console.WriteLine("{0} v{1}", typeof(Program).Assembly.GetName().Name, typeof(Program).Assembly.GetName().Version);
-            Console.WriteLine();
 
             if (ipv4Addresses.Count() == 0)
             {
@@ -94,6 +123,9 @@ namespace Rca.HueHookServer
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("http://{0}:{1}/", ip, port);
             Console.ResetColor();
+            for (int i = 0; i < 70; i++)
+                Console.Write("-");
+            Console.WriteLine();
             Console.WriteLine();
             #endregion
 

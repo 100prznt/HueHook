@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Rca.HueHookServer
@@ -16,7 +17,6 @@ namespace Rca.HueHookServer
         #endregion Member
 
         #region Properties
-
 
         #endregion Properties
 
@@ -40,9 +40,10 @@ namespace Rca.HueHookServer
 
             var bridge = await Client.GetBridgeAsync();
 
-            //Console.WriteLine("Hue bridge is connected.");
-            //Console.WriteLine(bridge.Config.Name);
-
+            Console.WriteLine("Hue bridge is connected.");
+            Console.WriteLine("Name: {0}", bridge.Config.Name);
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
         #endregion Services
