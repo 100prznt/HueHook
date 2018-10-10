@@ -1,6 +1,6 @@
-## Project has no stable release yet :construction:
+## Project under construction :construction:
 
-This project is in a early develop phase (10/09/2018).
+This project is in a early develop phase (10/10/2018).
 
 ---
 
@@ -40,6 +40,8 @@ The URL must at least be made up of the required parameters (:warning:). In addi
 #### Example
 The url `http://192.168.0.1/light.hue?id=1&on=1&bri=127` means, switch on the light with id 1 and setup the brightness to a value of 127.
 
+#### :closed_lock_with_key: Security
+Access is only allowed from the same computer on which the program is running.
 
 ## Releases
 This project build on the continuous integration (CI) platform [AppVeyor](https://www.appveyor.com/) and released in the [Release-Feed](https://github.com/rmmlr/HueHook/releases).
