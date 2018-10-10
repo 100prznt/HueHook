@@ -5,7 +5,7 @@ This project is in a early develop phase (10/09/2018).
 ---
 
 # HueHook
-Control your Philips Hue system with simple url calls, POST parameters are not needed.
+Control your Philips Hue system with simple HTTP GET requests. POST parameters are not needed!
 
 
 ## How to use
