@@ -13,9 +13,9 @@ Control your Philips Hue system with simple HTTP GET requests. POST parameters a
 ### Start the program
 Run the HueHookServer.exe with 2 start parameters.
 * parameter 1: IP of the hue-bridge
-* parameter 2: authorized username to access the bridge[^username]
+* parameter 2: authorized username to access the bridge[^1]
 
-[^username]: to get an new username see the [Getting Started](https://www.developers.meethue.com/documentation/getting-started) article on the *hue developer program*.
+[^1]: to get an new username see the [Getting Started](https://www.developers.meethue.com/documentation/getting-started) article on the *hue developer program*.
 
 To obtain this parameters you can start the program with a shortcut. Append the parameters to the target path, e.g. `C:\path-to-program\HueHookServer.exe 192.168.0.1 my-app-key`.
 
