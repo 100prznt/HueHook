@@ -10,15 +10,14 @@ namespace Rca.HueHookServer
 {
     public class Program
     {
-        public static IPAddress ServerIp;
-
         static int Main(string[] args)
         {
             //Default-Port (8008 HTTP-Alternativ)
-            const int port = 8008;
+            const int SERVER_PORT = 8008;
+            const string WHITELIST_FILE_NAME = "ip-whitelist.txt";
 
             Hue m_HueClient = new Hue();
-
+            bool m_LocalMode = false;
 
             #region Startup
 
@@ -49,7 +48,7 @@ namespace Rca.HueHookServer
             {
                 Console.WriteLine("Need 2 start parameters, described below:");
                 Console.WriteLine("parameter 1: IP of the hue-bridge");
-                Console.WriteLine("parameter 2: authorized user-id");
+                Console.WriteLine("parameter 2: authorized username to access the bridge");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("Program is closing...");
@@ -62,7 +61,8 @@ namespace Rca.HueHookServer
 
             if (IPAddress.TryParse(args[0], out bridgeIp))
             {
-                Console.WriteLine("Connect hue bridge at: {0}", bridgeIp);
+                Console.WriteLine("Try to connect hue bridge at: {0}", bridgeIp);
+                Console.WriteLine();
                 m_HueClient.ConnectBridge(bridgeIp, args[1]);
                 Thread.Sleep(2500);
             }
@@ -74,6 +74,40 @@ namespace Rca.HueHookServer
                 Console.ReadKey();
                 return -1;
             }
+
+            for (int i = 0; i < 70; i++)
+                Console.Write("-");
+            Console.WriteLine();
+            Console.WriteLine();
+            #endregion
+
+
+            #region init whitelist
+            var whitelistPath = WHITELIST_FILE_NAME;
+#if DEBUG
+            whitelistPath = "../../../ExampleData/ip-whitelist.txt";
+#endif
+            Console.WriteLine("Try to open whitelist from: {0}", whitelistPath);
+            Console.WriteLine();
+
+            Whitelist.Init(whitelistPath);
+
+            if (Whitelist.IpAddresses.Length > 0)
+            {
+                Console.WriteLine("Whitelisted clients:");
+                foreach (var listetIp in Whitelist.IpAddresses)
+                    Console.WriteLine(listetIp);
+            }
+            else
+            {
+                m_LocalMode = true;
+                Console.WriteLine("No whitelisted clients found. Only local this machine can access the server.");
+            }
+            for (int i = 0; i < 70; i++)
+                Console.Write("-");
+            Console.WriteLine();
+            Console.WriteLine();
+
             #endregion
 
 
@@ -123,17 +157,17 @@ namespace Rca.HueHookServer
 
             Console.Write("HueHookServer is runing under: ");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("http://{0}:{1}/", ip, port);
+            Console.WriteLine("http://{0}:{1}/", ip, SERVER_PORT);
             Console.ResetColor();
             for (int i = 0; i < 70; i++)
                 Console.Write("-");
             Console.WriteLine();
             Console.WriteLine();
-            #endregion
+#endregion
+            if (m_LocalMode)
+                Whitelist.AddIp(ip);
 
-            ServerIp = ip;
-
-            HttpServer httpServer = new HookReceiver(ip, port);
+            HttpServer httpServer = new HookReceiver(ip, SERVER_PORT);
 
             Thread thread = new Thread(new ThreadStart(httpServer.listen));
             thread.Start();

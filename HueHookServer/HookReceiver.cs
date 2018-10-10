@@ -45,11 +45,13 @@ namespace Rca.HueHookServer
                 var remoteIp = getRemoteIp(p);
                 Console.WriteLine("remote endpoint IP: " + remoteIp);
 
-                if (!IPAddress.Equals(Program.ServerIp, remoteIp))
+                if (!Whitelist.IsWhitelisted(remoteIp))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Access denied, remote IP not allowed!");
                     Console.ResetColor();
+
+                    return;
                 }
 
                 if (p.HttpUrl.StartsWith("/favicon.ico")) //many browsers ask for favicon.ico
@@ -74,7 +76,7 @@ namespace Rca.HueHookServer
 
                     var cmd = parameters.ToLightCommand();
 
-                    Hue.Client.SendCommandAsync(cmd, new List<string>() { parameters["id"] });
+                    var res = Hue.Client.SendCommandAsync(cmd, new List<string>() { parameters["id"] });
                 }
                 else if (p.HttpUrl.StartsWith("/group.hue"))
                 {

@@ -1,6 +1,6 @@
-## Project has no stable release yet :construction:
+## Project under construction :construction:
 
-This project is in a early develop phase (10/09/2018).
+This project is in a early develop phase (10/10/2018).
 
 ---
 
@@ -13,7 +13,9 @@ Control your Philips Hue system with simple HTTP GET requests. POST parameters a
 ### Start the program
 Run the HueHookServer.exe with 2 start parameters.
 * parameter 1: IP of the hue-bridge
-* parameter 2: authorized user-id
+* parameter 2: authorized username to access the bridge*
+
+\* to get an new username see the [Getting Started](https://www.developers.meethue.com/documentation/getting-started) article on the *hue developer program*.
 
 To obtain this parameters you can start the program with a shortcut. Append the parameters to the target path, e.g. `C:\path-to-program\HueHookServer.exe 192.168.0.1 my-app-key`.
 
@@ -40,6 +42,9 @@ The URL must at least be made up of the required parameters (:warning:). In addi
 #### Example
 The url `http://192.168.0.1/light.hue?id=1&on=1&bri=127` means, switch on the light with id 1 and setup the brightness to a value of 127.
 
+#### Security
+* From version [1.0.14](https://github.com/rmmlr/HueHook/releases/tag/1.0.14) access is only allowed from the same computer on which the program is running.
+* From version [1.0.15](https://github.com/rmmlr/HueHook/releases/tag/1.0.15) access is managed by a whitlist file, this file contains whitlisted ip-addresses (each per line). The file must be in the same directory as the program and named `ip-whitelist.txt`. An example you can find under [ExampleData](https://github.com/rmmlr/HueHook/blob/master/ExampleData).
 
 ## Releases
 This project build on the continuous integration (CI) platform [AppVeyor](https://www.appveyor.com/) and released in the [Release-Feed](https://github.com/rmmlr/HueHook/releases).
