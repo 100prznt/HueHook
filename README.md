@@ -23,14 +23,21 @@ After successfully initialization the programm prints the server address (ip and
 
 Call the urls described below, each url starts with the address (ip and port) and have some optional parameters:
 
-|Description|CMD|Value    |Light             |Group             |Scene             |
-|-----------|---|---------|:----------------:|:----------------:|:----------------:|
-|URL        |   |`/*.hue` |`/light.hue`      |`/group.hue`      |`/scene.hue`      |
-|ID         |id |0 - 254  |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|On state   |on |0, 1     |:heavy_check_mark:|:heavy_check_mark:|:x:               |
-|Hue        |hue|0 - 65535|:heavy_check_mark:|:heavy_check_mark:|:x:               |
-|Saturation |sat|0 - 254  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
-|Brightness |bri|0 - 254  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|Description       |CMD|Value      |Light             |Group             |Scene             |
+|------------------|---|-----------|:----------------:|:----------------:|:----------------:|
+|URL :warning:     |   |`/*.hue`   |`/light.hue`      |`/group.hue`      |`/scene.hue`      |
+|ID :warning:      |id |0 - 254    |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|On state          |on |0, 1       |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|Hue               |hue|0 - 65535  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|Saturation        |sat|0 - 254    |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|Brightness        |bri|0 - 254    |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+|Color Temperature |ct |153 - 500  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
+
+:warning: required parameter
+:heavy_check_mark: parameter allowed
+:x: parameter not allowed
+
+The URL must at least be made up of the required parameters (:warning:). In addition, further allowed parameters (:heavy_check_mark:) can be appended. The parameters are appended to the URL as a query string (name/value pairs), see the example below.
 
 #### Example
 The url `http://192.168.0.1/light.hue?id=1&on=1&bri=127` means, switch on the light with id 1 and setup the brightness to a value of 127.
