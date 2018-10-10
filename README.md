@@ -33,7 +33,7 @@ Call the urls described below, each url starts with the address (ip and port) an
 |Brightness        |bri|0 - 254    |:heavy_check_mark:|:heavy_check_mark:|:x:               |
 |Color Temperature |ct |153 - 500  |:heavy_check_mark:|:heavy_check_mark:|:x:               |
 
-:warning: required parameter - :heavy_check_mark: parameter allowed - :x: parameter not allowed
+:warning: required parameter   :heavy_check_mark: parameter allowed   :x: parameter not allowed
 
 The URL must at least be made up of the required parameters (:warning:). In addition, further allowed parameters (:heavy_check_mark:) can be appended. The parameters are appended to the URL as a query string (name/value pairs), see the example below.
 
