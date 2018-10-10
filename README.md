@@ -40,7 +40,7 @@ The URL must at least be made up of the required parameters (:warning:). In addi
 #### Example
 The url `http://192.168.0.1/light.hue?id=1&on=1&bri=127` means, switch on the light with id 1 and setup the brightness to a value of 127.
 
-#### :closed_lock_with_key: Security
+#### Security
 Access is only allowed from the same computer on which the program is running.
 
 ## Releases
