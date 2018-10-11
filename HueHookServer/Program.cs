@@ -1,4 +1,5 @@
-﻿using SmartHttpServer;
+﻿using Rca.HueHook;
+using SmartHttpServer;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -10,14 +11,16 @@ namespace Rca.HueHookServer
 {
     public class Program
     {
+        public static HueHookSettings Settings;
+
         static int Main(string[] args)
         {
             //Default-Port (8008 HTTP-Alternativ)
-            const int SERVER_PORT = 8008;
-            const string WHITELIST_FILE_NAME = "ip-whitelist.txt";
+
+
+            const string SETTINGS_PATH = "HueHookSettings.xml";
 
             Hue m_HueClient = new Hue();
-            bool m_LocalMode = false;
 
             #region Startup
 
@@ -30,7 +33,7 @@ namespace Rca.HueHookServer
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
             //Console.WriteLine("{0} v{1}", typeof(Program).Assembly.GetName().Name, typeof(Program).Assembly.GetName().Version);
-            Console.WriteLine("{0} v{1}", versionInfo.ProductName, versionInfo.ProductVersion);
+            Console.WriteLine("{0} v{1}", typeof(Program).Assembly.GetName().Name, versionInfo.ProductVersion);
             Console.ResetColor();
             if (attribute != null)
                 Console.WriteLine(attribute.Description);
@@ -43,37 +46,36 @@ namespace Rca.HueHookServer
 
             #endregion
 
+            #region Init program
+            Console.WriteLine("Load settings: {0}", SETTINGS_PATH);
+            Console.WriteLine();
+            try
+            {
+                Settings = HueHookSettings.FromFile(SETTINGS_PATH);
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
+                Console.Write("Program is closing...");
+                Console.ReadKey();
+                return -1;
+            }
+            Console.WriteLine("Settings loaded successfully");
+            Console.WriteLine();
+            for (int i = 0; i < 70; i++)
+                Console.Write("-");
+            Console.WriteLine();
+            Console.WriteLine();
+
+            #endregion
+
             #region Init hue client
-            if (args.Length != 2)
-            {
-                Console.WriteLine("Need 2 start parameters, described below:");
-                Console.WriteLine("parameter 1: IP of the hue-bridge");
-                Console.WriteLine("parameter 2: authorized username to access the bridge");
-                Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("Program is closing...");
-                Console.ReadKey();
-                return -1;
-
-            }
-
-            IPAddress bridgeIp = null;
-
-            if (IPAddress.TryParse(args[0], out bridgeIp))
-            {
-                Console.WriteLine("Try to connect hue bridge at: {0}", bridgeIp);
-                Console.WriteLine();
-                m_HueClient.ConnectBridge(bridgeIp, args[1]);
-                Thread.Sleep(2500);
-            }
-            else
-            {
-                Console.WriteLine("Invalid parameter for ip."); Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("Program is closing...");
-                Console.ReadKey();
-                return -1;
-            }
+            Console.WriteLine("Try to connect hue bridge at: {0}", Settings.BridgeIp);
+            Console.WriteLine();
+            m_HueClient.ConnectBridge(Settings.BridgeIp, Settings.BridgeUsername);
+            Thread.Sleep(2500);
 
             for (int i = 0; i < 70; i++)
                 Console.Write("-");
@@ -81,42 +83,12 @@ namespace Rca.HueHookServer
             Console.WriteLine();
             #endregion
 
-
-            #region init whitelist
-            var whitelistPath = WHITELIST_FILE_NAME;
-#if DEBUG
-            whitelistPath = "../../../ExampleData/ip-whitelist.txt";
-#endif
-            Console.WriteLine("Try to open whitelist from: {0}", whitelistPath);
-            Console.WriteLine();
-
-            Whitelist.Init(whitelistPath);
-
-            if (Whitelist.IpAddresses.Length > 0)
-            {
-                Console.WriteLine("Whitelisted clients:");
-                foreach (var listetIp in Whitelist.IpAddresses)
-                    Console.WriteLine(listetIp);
-            }
-            else
-            {
-                m_LocalMode = true;
-                Console.WriteLine("No whitelisted clients found. Only local this machine can access the server.");
-            }
-            for (int i = 0; i < 70; i++)
-                Console.Write("-");
-            Console.WriteLine();
-            Console.WriteLine();
-
-            #endregion
-
-
+            
             #region init server
-            Console.WriteLine("Start local HTTP server.");
+            Console.WriteLine("Start local HTTP server");
 
             IPAddress[] ipv4Addresses = Array.FindAll(Dns.GetHostEntry(string.Empty).AddressList, a => a.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork);
-            var ip = IPAddress.Parse("127.0.0.1");
-
+            
 
             if (ipv4Addresses.Count() == 0)
             {
@@ -127,47 +99,33 @@ namespace Rca.HueHookServer
                 Console.ReadKey();
                 return -1;
             }
-            else if (ipv4Addresses.Length == 1)
+            else if (ipv4Addresses.Any(x => IPAddress.Equals(x, Settings.LocalServerIp))) 
             {
-                ip = ipv4Addresses[0];
+                Console.WriteLine();
+
+                Console.Write("HueHookServer is runing under: ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("http://{0}:{1}/", Settings.LocalServerIp, Settings.LocalServerPort);
+                Console.ResetColor();
+                for (int i = 0; i < 70; i++)
+                    Console.Write("-");
+                Console.WriteLine();
+                Console.WriteLine();
             }
             else
             {
-                Console.WriteLine("Found more than one network adapters:");
-                for (int i = 0; i < ipv4Addresses.Length; i++)
-                    Console.WriteLine(" [{0}] {1}", i + 1, ipv4Addresses[i]);
+                Console.WriteLine("No network adapter with ip " + Settings.LocalServerIp + " found.");
                 Console.WriteLine();
-                Console.Write("Which adapter would like to use? ");
-                ConsoleKeyInfo key = Console.ReadKey();
-                Console.WriteLine();
-                try
-                {
-                    ip = ipv4Addresses[Int32.Parse(key.KeyChar.ToString()) - 1];
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine();
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("Wrong input ({0}), Program is closing...", key.KeyChar);
-                    Console.ReadKey();
-                    return -1;
-                }
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("Program is closing...");
+                Console.ReadKey();
+                return -1;
             }
-            Console.WriteLine();
+            
+            #endregion
 
-            Console.Write("HueHookServer is runing under: ");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("http://{0}:{1}/", ip, SERVER_PORT);
-            Console.ResetColor();
-            for (int i = 0; i < 70; i++)
-                Console.Write("-");
-            Console.WriteLine();
-            Console.WriteLine();
-#endregion
-            if (m_LocalMode)
-                Whitelist.AddIp(ip);
 
-            HttpServer httpServer = new HookReceiver(ip, SERVER_PORT);
+            HttpServer httpServer = new HookReceiver(Settings.LocalServerIp, Settings.LocalServerPort);
 
             Thread thread = new Thread(new ThreadStart(httpServer.listen));
             thread.Start();
