@@ -45,7 +45,7 @@ namespace Rca.HueHookServer
                 var remoteIp = getRemoteIp(p);
                 Console.WriteLine("remote endpoint IP: " + remoteIp);
 
-                if (!Whitelist.IsWhitelisted(remoteIp))
+                if (!Program.Settings.WhiteList.IsWhitelisted(remoteIp))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Access denied, remote IP not allowed!");
@@ -70,8 +70,9 @@ namespace Rca.HueHookServer
                     //parsing GET parameters
                     var parameters = HttpUtility.ParseQueryString(p.HttpUrl.Split('?').Last());
 
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("/light.hue");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.Magenta;
+                    Console.WriteLine("Setup LIGHT");
                     Console.ResetColor();
 
                     var cmd = parameters.ToLightCommand();
@@ -83,8 +84,9 @@ namespace Rca.HueHookServer
                     //parsing GET parameters
                     var parameters = HttpUtility.ParseQueryString(p.HttpUrl.Split('?').Last());
 
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("/group.hue");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.Magenta;
+                    Console.WriteLine("Setup GROUP");
                     Console.ResetColor();
 
                     var cmd = parameters.ToLightCommand();
@@ -96,8 +98,9 @@ namespace Rca.HueHookServer
                     //parsing GET parameters
                     var parameters = HttpUtility.ParseQueryString(p.HttpUrl.Split('?').Last());
 
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("/scene.hue");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.Magenta;
+                    Console.WriteLine("Setup SCENE");
                     Console.ResetColor();
 
 

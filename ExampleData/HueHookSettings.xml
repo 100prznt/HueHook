@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<HueHookSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BridgeIp>192.168.0.100</BridgeIp>
+  <BridgeUsername>Bridge-Username-123</BridgeUsername>
+  <LocalServerIp>192.168.0.1</LocalServerIp>
+  <LocalServerPort>8008</LocalServerPort>
+  <WhiteList>
+    <IpAddress>192.168.0.101</IpAddress>
+    <IpAddress>192.168.0.102</IpAddress>
+    <IpAddress>192.168.0.103</IpAddress>
+  </WhiteList>
+</HueHookSettings>

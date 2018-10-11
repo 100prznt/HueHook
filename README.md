@@ -5,13 +5,35 @@ Control your Philips Hue system with simple HTTP GET requests. POST parameters a
 ## How to use
 
 ### Start the program
+
+#### Since version [1.0.19](https://github.com/rmmlr/HueHook/releases/tag/1.0.19)
+Before the first program start, a settings file must be created. You can modify the example file, found in [ExampleData/HueHookSettings.xml](https://github.com/rmmlr/HueHook/blob/master/ExampleData/HueHookSettings.xml). The file must be in the same directory as the program and named `HueHookSettings.xml`. See next point [Settings](#Settings) for detailed informations.
+
+#### Up to version [1.0.18](https://github.com/rmmlr/HueHook/releases/tag/1.0.18)
 Run the HueHookServer.exe with 2 start parameters.
 * parameter 1: IP of the hue-bridge
 * parameter 2: authorized username to access the bridge*
 
+To obtain this parameters you can start the program with a shortcut. Append the parameters to the target path, e.g. `C:\path-to-program\HueHookServer.exe 192.168.0.1 my-app-key`.
+
+### Settings
+The program settings are stored in a xml-formated file, named `HueHookSettings.xml`.
+This file have one root node `<HueHookSettings>`, which have several child nodes.
+
+|Node               |         |Description                                                                         |
+|-------------------|:-------:|------------------------------------------------------------------------------------|
+|`<BridgeIp>`       |:warning:|IP address of the Philips Hue Bridge                                                |
+|`<BridgeUsername>` |:warning:|authorized user on the Philips Hue Bridge*                                          |
+|`<LocalServerIp>`  |         |                                                                                    |
+|`<LocalServerPort>`|         |port of the HueHookServer                                                           |
+|`<WhiteList>`      |:warning:|this node contains child nodes (`<IpAddress>`) for each IP address of allowed client|
+
+:warning: required setting
+
+An example you can find under [ExampleData/HueHookSettings.xml](https://github.com/rmmlr/HueHook/blob/master/ExampleData/HueHookSettings.xml).
+
 \* to get an new username see the [Getting Started](https://www.developers.meethue.com/documentation/getting-started) article on the *hue developer program*.
 
-To obtain this parameters you can start the program with a shortcut. Append the parameters to the target path, e.g. `C:\path-to-program\HueHookServer.exe 192.168.0.1 my-app-key`.
 
 After successfully initialization the programm prints the server address (ip and port).
 
@@ -37,8 +59,8 @@ The URL must at least be made up of the required parameters (:warning:). In addi
 The url `http://192.168.0.1/light.hue?id=1&on=1&bri=127` means, switch on the light with id 1 and setup the brightness to a value of 127.
 
 #### Security
-* From version [1.0.14](https://github.com/rmmlr/HueHook/releases/tag/1.0.14) access is only allowed from the same computer on which the program is running.
-* From version [1.0.15](https://github.com/rmmlr/HueHook/releases/tag/1.0.15) access is managed by a whitlist file, this file contains whitlisted ip-addresses (each per line). The file must be in the same directory as the program and named `ip-whitelist.txt`. An example you can find under [ExampleData](https://github.com/rmmlr/HueHook/blob/master/ExampleData).
+* Since version [1.0.14](https://github.com/rmmlr/HueHook/releases/tag/1.0.14) access is only allowed from the same computer on which the program is running.
+* Since version [1.0.15](https://github.com/rmmlr/HueHook/releases/tag/1.0.15) access is managed by a whitlist file, this file contains whitlisted ip-addresses (each per line). The file must be in the same directory as the program and named `ip-whitelist.txt`. An example you can find under [ExampleData](https://github.com/rmmlr/HueHook/blob/master/ExampleData).
 
 ## Releases
 This project build on the continuous integration (CI) platform [AppVeyor](https://www.appveyor.com/) and released in the [Release-Feed](https://github.com/rmmlr/HueHook/releases).
