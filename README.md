@@ -1,9 +1,3 @@
-## Project under construction :construction:
-
-This project is in a early develop phase (10/10/2018).
-
----
-
 # HueHook
 Control your Philips Hue system with simple HTTP GET requests. POST parameters are not needed!
 
