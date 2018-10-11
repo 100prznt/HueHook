@@ -108,6 +108,7 @@
     <Compile Include="BoolParser.cs" />
     <Compile Include="HookReceiver.cs" />
     <Compile Include="Hue.cs" />
+    <Compile Include="HueParameters.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Whitelist.cs" />
