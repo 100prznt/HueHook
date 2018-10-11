@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rca.HueHookServer
+namespace Rca.HueHook
 {
-    [Obsolete("dev! not in use")]
     public enum HueParameters
     {
         [HueParameterAssignment(HueObjects.Group | HueObjects.Light | HueObjects.Scene)]
