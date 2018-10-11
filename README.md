@@ -7,7 +7,7 @@ Control your Philips Hue system with simple HTTP GET requests. POST parameters a
 ### Start the program
 
 #### Since version [1.0.19](https://github.com/rmmlr/HueHook/releases/tag/1.0.19)
-Before the first program start, a settings file must be created. You can modify the example file, found in [ExampleData/HueHookSettings.xml](https://github.com/rmmlr/HueHook/blob/master/ExampleData/HueHookSettings.xml). The file must be in the same directory as the program and named `HueHookSettings.xml`. See next point [Settingsfile](#Settingsfile) for detailed informations.
+Before the first program start, a settings file must be created. You can modify the example file, found in [ExampleData/HueHookSettings.xml](https://github.com/rmmlr/HueHook/blob/master/ExampleData/HueHookSettings.xml). The file must be in the same directory as the program and named `HueHookSettings.xml`. See next point [Settings](#Settings) for detailed informations.
 
 #### Up to version [1.0.18](https://github.com/rmmlr/HueHook/releases/tag/1.0.18)
 Run the HueHookServer.exe with 2 start parameters.
