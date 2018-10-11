@@ -170,28 +170,47 @@ namespace Rca.HueHookServer
 
             if (parameters.AllKeys.Contains("on"))
             {
-                cmd.On = bool.Parse(parameters["on"]);
+                cmd.On = parameters["on"].ToBoolean();
                 Console.WriteLine("On:               {0}", cmd.On);
             }
             if (parameters.AllKeys.Contains("sat"))
             {
-                cmd.Saturation = int.Parse(parameters["sat"]);
-                Console.WriteLine("Saturation:       {0}", cmd.Saturation);
+                int sat = 0;
+                if (int.TryParse(parameters["sat"], out sat))
+                {
+                    cmd.Saturation = sat;
+                    Console.WriteLine("Saturation:       {0}", cmd.Saturation);
+                }
             }
             if (parameters.AllKeys.Contains("hue"))
             {
-                cmd.Hue = int.Parse(parameters["hue"]);
-                Console.WriteLine("Hue:              {0}", cmd.Hue);
+                int hue = 0;
+                if (int.TryParse(parameters["hue"], out hue))
+                {
+                    cmd.Hue = hue;
+                    Console.WriteLine("Hue:              {0}", cmd.Hue);
+                }
             }
             if (parameters.AllKeys.Contains("bri"))
             {
-                cmd.Brightness = byte.Parse(parameters["bri"]);
-                Console.WriteLine("Brightness:       {0}", cmd.Brightness);
+                byte bri = 0;
+                if (byte.TryParse(parameters["bri"], out bri))
+                {
+                    cmd.Brightness = bri;
+                    Console.WriteLine("Brightness:       {0}", cmd.Brightness);
+                }
             }
             if (parameters.AllKeys.Contains("ct"))
             {
-                cmd.ColorTemperature = int.Parse(parameters["ct"]);
-                Console.WriteLine("ColorTemperature: {0}", cmd.ColorTemperature);
+                int ct = 153;
+                if (int.TryParse(parameters["ct"], out ct))
+                {
+                    if (ct >= 153 && ct <= 500)
+                    {
+                        cmd.ColorTemperature = ct;
+                        Console.WriteLine("ColorTemperature: {0}", cmd.ColorTemperature);
+                    }
+                }
             }
 
             Console.ResetColor();
