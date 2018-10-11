@@ -20,13 +20,13 @@ To obtain this parameters you can start the program with a shortcut. Append the 
 The program settings are stored in a xml-formated file, named `HueHookSettings.xml`.
 This file have one root node `<HueHookSettings>`, which have several child nodes.
 
-|Node               |         |Description                                                                                   |
-|-------------------|:-------:|----------------------------------------------------------------------------------------------|
-|`<BridgeIp>`       |:warning:|IP address of the Philips Hue Bridge                                                          |
-|`<BridgeUsername>` |:warning:|authorized user on the Philips Hue Bridge*                                                    |
-|`<LocalServerIp>`  |         |                                                                                              |
-|`<LocalServerPort>`|         |port of the HueHookServer                                                                     |
-|`<WhiteList>`      |:warning:|this node contains child nodes (`IpAddress`) for each IP address of allowed/whitelisted client|
+|Node               |         |Description                                                                         |
+|-------------------|:-------:|------------------------------------------------------------------------------------|
+|`<BridgeIp>`       |:warning:|IP address of the Philips Hue Bridge                                                |
+|`<BridgeUsername>` |:warning:|authorized user on the Philips Hue Bridge*                                          |
+|`<LocalServerIp>`  |         |                                                                                    |
+|`<LocalServerPort>`|         |port of the HueHookServer                                                           |
+|`<WhiteList>`      |:warning:|this node contains child nodes (`<IpAddress>`) for each IP address of allowed client|
 
 :warning: required setting
 
