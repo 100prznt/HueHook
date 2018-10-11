@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rca.HueHookServer
+namespace Rca.HueHook.Util
 {
     /// <summary>
     /// Parse strings into true or false bools using relaxed parsing rules
