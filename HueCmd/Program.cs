@@ -69,6 +69,12 @@ namespace Rca.HueCmd
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine(ex.Message);
                             Console.WriteLine();
+                            Console.WriteLine();
+                            Console.ResetColor();
+                            Console.WriteLine();
+                            PrintHelp();
+                            Console.WriteLine();
+                            Console.WriteLine();
                             Console.Write("Program is closing...");
                             Console.ReadKey();
                         }
@@ -78,7 +84,7 @@ namespace Rca.HueCmd
                         parameters.Add(parameter[0], parameter[1]);
                 }
             }
-
+            
             //TODO: verify parameters
 
             #endregion
@@ -156,6 +162,30 @@ namespace Rca.HueCmd
 #if DEBUG
             Console.ReadKey();
 #endif
+        }
+
+        static void PrintHelp()
+        {
+            Console.WriteLine("Startparameters");
+            Console.WriteLine("");
+            Console.WriteLine("|Description       |Name| Value     |Light    |Group    |Scene    |");
+            Console.WriteLine("|------------------|----|-----------|---------|---------|---------|");
+            Console.WriteLine("|Object*           |    |           |light.hue|group.hue|scene.hue|");
+            Console.WriteLine("|ID*               |id  |0 - 254    |y        |y        |y        |");
+            Console.WriteLine("|On state          |on  |0, 1       |y        |y        |n        |");
+            Console.WriteLine("|Hue               |hue |0 - 65535  |y        |y        |n        |");
+            Console.WriteLine("|Saturation        |sat |0 - 254    |y        |y        |n        |");
+            Console.WriteLine("|Brightness        |bri |0 - 254    |y        |y        |n        |");
+            Console.WriteLine("|Color Temperature |ct  |153 - 500  |y        |y        |n        |");
+            Console.WriteLine("");
+            Console.WriteLine("*) required parameter - y) parameter allowed - n) parameter not allowed");
+            Console.WriteLine("");
+            Console.WriteLine("The program must be started with at least the required parameters, marked with *." + 
+                "In addition, further allowed parameters (y) can be appended.");
+            Console.WriteLine("");
+            Console.WriteLine("Example");
+            Console.WriteLine("HueCmd.exe -light.hue id=1 on=1 bri=127");
+            Console.WriteLine("This means, switch on the light with id 1 and setup the brightness to a value of 127.");
         }
     }
 }
