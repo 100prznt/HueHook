@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HueHook", "HueHook\HueHook.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HueHook_Test", "HueHook_Test\HueHook_Test.csproj", "{3D100B56-12C5-40F0-90C1-B4008EB95F56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HueHookService", "HueHookService\HueHookService.csproj", "{C128FAE5-E687-4727-8B21-CE2BA037A697}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HueHookServiceTray", "HueHookServiceTray\HueHookServiceTray.csproj", "{C228BAD3-F08C-4CBF-8A74-EE827FB26ED2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{3D100B56-12C5-40F0-90C1-B4008EB95F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D100B56-12C5-40F0-90C1-B4008EB95F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D100B56-12C5-40F0-90C1-B4008EB95F56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C128FAE5-E687-4727-8B21-CE2BA037A697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C128FAE5-E687-4727-8B21-CE2BA037A697}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C128FAE5-E687-4727-8B21-CE2BA037A697}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C128FAE5-E687-4727-8B21-CE2BA037A697}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C228BAD3-F08C-4CBF-8A74-EE827FB26ED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C228BAD3-F08C-4CBF-8A74-EE827FB26ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C228BAD3-F08C-4CBF-8A74-EE827FB26ED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C228BAD3-F08C-4CBF-8A74-EE827FB26ED2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
