@@ -8,7 +8,7 @@ namespace HueHook_Test
     [TestClass]
     public class HueHookSettings_Test
     {
-        [TestMethod]
+        [TestMethod, TestCategory("Settings")]
         public void WriteSettingsToXml()
         {
             var testObject = GenDummySettings();
@@ -16,7 +16,7 @@ namespace HueHook_Test
             testObject.ToFile("HueHookSettings_Test_WriteSettingsToXml.xml");
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Settings")]
         public void ReadSettingsFromXml()
         {
             var dummy = GenDummySettings();
