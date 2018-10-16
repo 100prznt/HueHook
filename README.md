@@ -7,7 +7,7 @@ Control your Philips Hue system with simple HTTP GET requests. POST parameters a
 ### Start the program
 
 #### Since version [1.0.19](https://github.com/rmmlr/HueHook/releases/tag/1.0.19)
-Before the first program start, a settings file must be created. You can modify the example file, found in [ExampleData/HueHookSettings.xml](https://github.com/rmmlr/HueHook/blob/master/ExampleData/HueHookSettings.xml). The file must be in the same directory as the program and named `HueHookSettings.xml`. See next point [Settings](#Settings) for detailed informations.
+Before the first program start, a settings file must be created. You can modify the example file, found in [ExampleData/HueHookSettings.xml](https://github.com/rmmlr/HueHook/blob/master/ExampleData/HueHookSettings.xml). The file must be in the same directory as the program and named `HueHookSettings.xml`. See next point [Settings](#settings) for detailed informations.
 
 #### Up to version [1.0.18](https://github.com/rmmlr/HueHook/releases/tag/1.0.18)
 Run the HueHookServer.exe with 2 start parameters.
@@ -61,6 +61,7 @@ The url `http://192.168.0.1/light.hue?id=1&on=1&bri=127` means, switch on the li
 #### Security
 * Since version [1.0.14](https://github.com/rmmlr/HueHook/releases/tag/1.0.14) access is only allowed from the same computer on which the program is running.
 * Since version [1.0.15](https://github.com/rmmlr/HueHook/releases/tag/1.0.15) access is managed by a whitlist file, this file contains whitlisted ip-addresses (each per line). The file must be in the same directory as the program and named `ip-whitelist.txt`. An example you can find under [ExampleData](https://github.com/rmmlr/HueHook/blob/master/ExampleData).
+* Since version [1.0.19](https://github.com/rmmlr/HueHook/releases/tag/1.0.19) the whitelist is defined in the settings file. See [Since version 1.0.19](https://github.com/rmmlr/HueHook/blob/develop/README.md#since-version-1019).
 
 ## Releases
 This project build on the continuous integration (CI) platform [AppVeyor](https://www.appveyor.com/) and released in the [Release-Feed](https://github.com/rmmlr/HueHook/releases).
