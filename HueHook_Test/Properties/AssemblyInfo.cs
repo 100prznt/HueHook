@@ -2,12 +2,12 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("HueHook_Test")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("HueHook Test-Project")]
+[assembly: AssemblyDescription("For more informations visit: https://github.com/rmmlr/HueHook")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("BOSCH")]
-[assembly: AssemblyProduct("HueHook_Test")]
-[assembly: AssemblyCopyright("Copyright © BOSCH 2018")]
+[assembly: AssemblyCompany("RC-Art Solutions")]
+[assembly: AssemblyProduct("HueHook")]
+[assembly: AssemblyCopyright("Copyright © RC-Art Solutions 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
