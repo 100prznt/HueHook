@@ -3,7 +3,7 @@ using System.Net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Rca.HueHook;
 
-namespace HueHook_Test
+namespace Rca.HueHook_Test
 {
     [TestClass]
     public class HueHookSettings_Test
@@ -31,6 +31,8 @@ namespace HueHook_Test
             Assert.AreEqual(dummy.LocalServerPort, testObject.LocalServerPort);
             Assert.AreEqual(dummy.WhiteList.IpAddresses.Length, testObject.WhiteList.IpAddresses.Length);
             Assert.AreEqual(dummy.WhiteList.IpAddresses[0], testObject.WhiteList.IpAddresses[0]);
+            Assert.AreEqual(dummy.WhiteList.Disabled, testObject.WhiteList.Disabled);
+            Assert.AreEqual(dummy.LogPath, testObject.LogPath);
         }
 
         HueHookSettings GenDummySettings()
@@ -49,8 +51,10 @@ namespace HueHook_Test
                         IPAddress.Parse("192.168.0.102"),
                         IPAddress.Parse("192.168.0.103"),
                         IPAddress.Parse("192.168.0.104")
-                    }
-                }
+                    },
+                    Disabled = true
+                },
+                LogPath = "C:\\temp\\LogPath"
             };
         }
     }

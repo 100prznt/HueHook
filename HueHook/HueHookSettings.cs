@@ -12,6 +12,7 @@ namespace Rca.HueHook
     [Serializable]
     public class HueHookSettings
     {
+        #region Properties
         [XmlIgnore]
         public IPAddress BridgeIp { get; set; }
 
@@ -48,7 +49,36 @@ namespace Rca.HueHook
 
         public int LocalServerPort { get; set; } //Default-Port (8008 HTTP-Alternativ)
 
+        /// <summary>
+        /// Whitelist
+        /// </summary>
         public IpWhiteList WhiteList { get; set; }
+
+        /// <summary>
+        /// Path to the logging files
+        /// </summary>
+        public string LogPath { get; set; }
+
+        #endregion Properties
+
+        #region Constructor
+        public HueHookSettings()
+        {
+            WhiteList = new IpWhiteList();
+        }
+        #endregion Constructor
+
+        #region Services
+        /// <summary>
+        /// Load <seealso cref="HueHookSettings"/> from the default AppData path.
+        /// </summary>
+        /// <returns><seealso cref="HueHookSettings"/> object</returns>
+        /// <exception cref="FileNotFoundException"></exception>
+        /// <exception cref="FileLoadException"></exception>
+        public static HueHookSettings Load()
+        {
+            return FromFile(GetDefaultSettingsPath());
+        }
 
         /// <summary>
         /// Load <seealso cref="HueHookSettings"/> from a file.
@@ -80,12 +110,41 @@ namespace Rca.HueHook
         }
 
         /// <summary>
+        /// Load <seealso cref="HueHookSettings"/> from a file, if the file not exists, returns new <seealso cref="HueHookSettings"/>-object
+        /// </summary>
+        /// <param name="path">Path to the settings file</param>
+        /// <returns><seealso cref="HueHookSettings"/> object</returns>
+        /// <exception cref="FileNotFoundException"></exception>
+        /// <exception cref="FileLoadException"></exception>
+        public static HueHookSettings FromFileOrCreate(string path)
+        {
+            if (File.Exists(path))
+                return FromFile(path);
+            else
+                return new HueHookSettings();
+        }
+
+        /// <summary>
         /// Write settings to file
         /// </summary>
         /// <param name="path">Path to the settings file</param>
         /// <exception cref="ArgumentException"></exception>
         public void ToFile(string path)
         {
+            try
+            {
+                if (!Directory.Exists(Path.GetDirectoryName(path)))
+                {
+                    var dirPath = Path.GetDirectoryName(path);
+                    if (!string.IsNullOrWhiteSpace(dirPath))
+                        Directory.CreateDirectory(dirPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException("Can not create settings directory (" + path + ")!", ex);
+            }
+
             try
             {
                 using (var fs = new FileStream(path, FileMode.Create))
@@ -99,5 +158,11 @@ namespace Rca.HueHook
                 throw new ArgumentException("Can not write settings file (" + path + ")!", ex);
             }
         }
+
+        public static string GetDefaultSettingsPath()
+        {
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "HueHook", "Settings.xml");
+        }
+        #endregion Services
     }
 }

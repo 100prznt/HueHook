@@ -10,16 +10,30 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace Rca.HueHookService
 {
     public partial class HueHookServer : ServiceBase
     {
         Controller m_Controller;
+        string m_SettingsPath;
 
-        public HueHookServer()
+        public HueHookServer(string[] args)
         {
             InitializeComponent();
+
+            //if (args.Length < 1)
+            //    throw new ArgumentException("Missing startparameter [1], contains the path to settings file!");
+            //else
+            //    m_SettingsPath = args[0];
+
+            //if (args.Length > 1)
+            //    InherentLogger.SetLogPath(args[1]);
+
+            //m_SettingsPath = "C:\\temp\\HueHook\\Settings.xml";
+            //InherentLogger.SetLogPath("C:\\temp\\HueHook");
+
 
             m_Controller = new Controller();
             
@@ -28,6 +42,28 @@ namespace Rca.HueHookService
         protected override void OnStart(string[] args)
         {
             InherentLogger.WriteErrorLog("Start HueHookServer");
+            for (int i = 0; i < args.Length; i++)
+                InherentLogger.WriteErrorLog("arg[" + (i + 1) + "] = " + args[i]);
+
+            if (args.Length == 1 && File.Exists(args[0]))
+                m_SettingsPath = args[0];
+            else
+                InherentLogger.WriteErrorLog("Can not found settings file!");
+
+            try
+            {
+                m_Controller.LoadSettings(m_SettingsPath);
+            }
+            catch (Exception ex)
+            {
+                InherentLogger.WriteErrorLog(ex);
+            }
+
+            InherentLogger.WriteErrorLog("Settings loaded");
+            InherentLogger.WriteErrorLog("Log path: " + Controller.Settings.LogPath);
+            InherentLogger.LogPath = Controller.Settings.LogPath;
+            InherentLogger.WriteErrorLog("Log path is setted");
+
 
             // Update the service state to Start Pending.
             ServiceStatus serviceStatus = new ServiceStatus();
@@ -36,14 +72,7 @@ namespace Rca.HueHookService
             SetServiceStatus(this.ServiceHandle, ref serviceStatus);
 
 
-            try
-            {
-                m_Controller.LoadSettings(@"C:\dev\Projekte_Git\HueHook\HueHookService\bin\Debug\HueHookSettings.xml");
-            }
-            catch (Exception ex)
-            {
-                InherentLogger.WriteErrorLog(ex);
-            }
+            
 
 
             // Set up a timer that triggers every minute.
@@ -54,12 +83,14 @@ namespace Rca.HueHookService
 
 
 
+            InherentLogger.WriteErrorLog("Try to start HTTP server");
             try
             {
                 HttpServer httpServer = new HookReceiver(Controller.Settings.LocalServerIp, Controller.Settings.LocalServerPort);
     
                 Thread thread = new Thread(new ThreadStart(httpServer.listen));
                 thread.Start();
+                InherentLogger.WriteErrorLog("HTTP server is started");
             }
             catch (Exception ex)
             {
@@ -99,7 +130,7 @@ namespace Rca.HueHookService
         public void OnTimer(object sender, System.Timers.ElapsedEventArgs args)
         {
             // TODO: Insert monitoring activities here.
-            InherentLogger.WriteErrorLog("Monitoring the HueHookServer");
+            InherentLogger.WriteErrorLog("HueHookServer is alive");
         }
 
         [DllImport("advapi32.dll", SetLastError = true)]

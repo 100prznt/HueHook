@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Rca.HueHook;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -49,15 +52,15 @@ namespace Rca.HueHookServiceTray
             // Start.
             item = new ToolStripMenuItem();
             item.Text = "Start server";
-            item.Click += new EventHandler(Settings_Click);
-            //item.Image = Properties.Resources.Explorer;
+            item.Name = "start";
+            item.Image = Properties.Resource._285_play3;
             menu.Items.Add(item);
 
             // Stop.
             item = new ToolStripMenuItem();
             item.Text = "Stop server";
-            item.Click += new EventHandler(Settings_Click);
-            //item.Image = Properties.Resources.Explorer;
+            item.Name = "stop";
+            item.Image = Properties.Resource._287_stop2;
             menu.Items.Add(item);
 
             // Separator.
@@ -68,14 +71,21 @@ namespace Rca.HueHookServiceTray
             item = new ToolStripMenuItem();
             item.Text = "Settings";
             item.Click += new EventHandler(Settings_Click);
-            //item.Image = Properties.Resources.Explorer;
+            item.Image = Properties.Resource._150_cogs;
+            menu.Items.Add(item);
+
+            // Settings.
+            item = new ToolStripMenuItem();
+            item.Text = "Open logfile";
+            item.Click += new EventHandler(OpenLog_Click);
+            item.Image = Properties.Resource._039_file_text2;
             menu.Items.Add(item);
 
             // About.
             item = new ToolStripMenuItem();
             item.Text = "About";
             item.Click += new EventHandler(About_Click);
-            //item.Image = Properties.Resources.About;
+            item.Image = Properties.Resource._111_bubble2;
             menu.Items.Add(item);
 
             // Separator.
@@ -86,7 +96,7 @@ namespace Rca.HueHookServiceTray
             item = new ToolStripMenuItem();
             item.Text = "Exit";
             item.Click += new System.EventHandler(Exit_Click);
-            //item.Image = Properties.Resources.Exit;
+            item.Image = Properties.Resource._277_exit;
             menu.Items.Add(item);
 
             menu.Opening += Menu_Opening;
@@ -96,7 +106,7 @@ namespace Rca.HueHookServiceTray
 
         private void Menu_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
 
@@ -110,7 +120,11 @@ namespace Rca.HueHookServiceTray
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         void Settings_Click(object sender, EventArgs e)
         {
-            Process.Start("explorer", null);
+            var settingsForm = new SettingsForm();
+            settingsForm.ApplyData(HueHookSettings.FromFileOrCreate(HueHookSettings.GetDefaultSettingsPath()));
+            settingsForm.ShowDialog();
+
+            settingsForm.Settings.ToFile(HueHookSettings.GetDefaultSettingsPath());
         }
 
         /// <summary>
@@ -137,6 +151,16 @@ namespace Rca.HueHookServiceTray
         {
             // Quit without further ado.
             Application.Exit();
+        }
+
+        /// <summary>
+        /// Open logfile.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        void OpenLog_Click(object sender, EventArgs e)
+        {
+
         }
 
         #endregion Internal services

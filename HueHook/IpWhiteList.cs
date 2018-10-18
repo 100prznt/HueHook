@@ -34,13 +34,17 @@ namespace Rca.HueHook
             }
         }
 
+        public bool Disabled { get; set; }
 
         #endregion Properties
 
         #region Services
         public bool IsWhitelisted(IPAddress ip)
         {
-            return IpAddresses.Any(x => x.Equals(ip));
+            if (Disabled)
+                return true;
+            else
+                return IpAddresses.Any(x => x.Equals(ip));
         }
 
         public void AddIp(IPAddress ip)

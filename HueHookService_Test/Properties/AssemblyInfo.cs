@@ -2,7 +2,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("HueHook_Test")]
+[assembly: AssemblyTitle("HueHookService_Test")]
 [assembly: AssemblyDescription("For more informations visit: https://github.com/rmmlr/HueHook")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("RC-Art Solutions")]
@@ -13,7 +13,7 @@ using System.Runtime.InteropServices;
 
 [assembly: ComVisible(false)]
 
-[assembly: Guid("3d100b56-12c5-40f0-90c1-b4008eb95f56")]
+[assembly: Guid("632f2e20-5a05-4adc-9e73-84419cb23f18")]
 
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]

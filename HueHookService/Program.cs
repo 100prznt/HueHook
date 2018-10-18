@@ -12,12 +12,12 @@ namespace Rca.HueHookService
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.
         /// </summary>
-        static void Main()
+        static void Main(string[] args)
         {
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new HueHookServer()
+                new HueHookServer(args)
             };
             ServiceBase.Run(ServicesToRun);
         }

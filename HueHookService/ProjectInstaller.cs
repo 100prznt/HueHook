@@ -16,6 +16,13 @@ namespace Rca.HueHookService
             InitializeComponent();
         }
 
+        protected override void OnBeforeInstall(IDictionary savedState)
+        {
+            string parameter = "SettingsPath";
+            Context.Parameters["assemblypath"] = "\"" + Context.Parameters["assemblypath"] + "\" \"" + parameter + "\"";
+            base.OnBeforeInstall(savedState);
+        }
+
         private void serviceInstaller1_AfterInstall(object sender, InstallEventArgs e)
         {
 

@@ -8,5 +8,7 @@
     <IpAddress>192.168.0.101</IpAddress>
     <IpAddress>192.168.0.102</IpAddress>
     <IpAddress>192.168.0.103</IpAddress>
+    <Disabled>false</Disabled>
   </WhiteList>
+  <LogPath>C:\temp\LogPath</LogPath>
 </HueHookSettings>
