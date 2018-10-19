@@ -54,9 +54,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(33, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "IP Address";
+            this.label1.Text = "IP address";
             // 
             // txt_BridgeIp
             // 
@@ -110,9 +110,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(36, 35);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 4;
-            this.label4.Text = "IP Address";
+            this.label4.Text = "IP address";
             // 
             // groupBox1
             // 
@@ -165,9 +165,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(50, 58);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(139, 13);
+            this.label5.Size = new System.Drawing.Size(138, 13);
             this.label5.TabIndex = 4;
-            this.label5.Text = "IP Addresses (each per line)";
+            this.label5.Text = "IP addresses (each per line)";
             // 
             // cbx_EnableWhitelist
             // 
