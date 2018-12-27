@@ -1,6 +1,8 @@
 # HueHook
 Control your Philips Hue system with simple HTTP GET requests. POST parameters are not needed!
 
+### HueCmd
+You can find a seperate [README.md](HueCmd/README.md) for `HueCmd`, now. Browse to [HueCmd/README.md](HueCmd/README.md)
 
 ## How to use
 
