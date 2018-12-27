@@ -19,7 +19,7 @@ namespace Rca.HueCmd
 
         static void Main(string[] args)
         {
-            const string SETTINGS_PATH = "HueHookSettings.xml";
+            const string SETTINGS_PATH = "HueCmdSettings.xml";
 
             Hue m_HueClient = new Hue();
 
