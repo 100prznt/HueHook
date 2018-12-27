@@ -39,6 +39,7 @@ The program must be started with at least the required parameters (:warning:). A
 
 #### Command Line
 `HueCmd.exe -light.hue -id=1 -on=1 -bri=127`
+
 This means, switch on the light with ID 1 and setup the brightness to a value of 127.
 
 #### Windows Shortcut
