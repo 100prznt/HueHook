@@ -41,6 +41,7 @@ The program must be started with at least the required parameters (:warning:). A
 ### Windows Shortcut
 You can obtain this parameters also with a windows shortcut.
 
+
 ![HueCmd example shortcut](../Images/HueCmdExampleShortcut.PNG)
 
 ## Releases
