@@ -84,7 +84,7 @@ Under [Contributors](https://github.com/rmmlr/HueHook/contributors) you can see 
 
 ### Open Source Project Credits
 
-* [Q42.HueApi](https://github.com/Q42/Q42.HueApi) Bedienung der Hue-API
+* [Q42.HueApi](https://github.com/Q42/Q42.HueApi) C# helper library to talk to the Philips Hue bridge 
 
 ## License
 
