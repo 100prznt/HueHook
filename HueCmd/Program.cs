@@ -49,7 +49,7 @@ namespace Rca.HueCmd
 
             #region handle args
 
-            //All args start with "--" add to NVC
+            //All args start with "-" add to NVC
             var parameters = new NameValueCollection();
             HueObjects hueObject = HueObjects.None;
 
@@ -83,6 +83,18 @@ namespace Rca.HueCmd
                     if (parameter.Length == 2)
                         parameters.Add(parameter[0], parameter[1]);
                 }
+            }
+
+            if (parameters.Count < 1)
+            {
+                Console.WriteLine("No parameters found!");
+                Console.WriteLine();
+                PrintHelp();
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.Write("Program is closing...");
+                Console.ReadKey();
+                return;
             }
             
             //TODO: verify parameters
@@ -168,15 +180,15 @@ namespace Rca.HueCmd
         {
             Console.WriteLine("Startparameters");
             Console.WriteLine("");
-            Console.WriteLine("|Description       |Name| Value     |Light    |Group    |Scene    |");
-            Console.WriteLine("|------------------|----|-----------|---------|---------|---------|");
-            Console.WriteLine("|Object*           |    |           |light.hue|group.hue|scene.hue|");
-            Console.WriteLine("|ID*               |id  |0 - 254    |y        |y        |y        |");
-            Console.WriteLine("|On state          |on  |0, 1       |y        |y        |n        |");
-            Console.WriteLine("|Hue               |hue |0 - 65535  |y        |y        |n        |");
-            Console.WriteLine("|Saturation        |sat |0 - 254    |y        |y        |n        |");
-            Console.WriteLine("|Brightness        |bri |0 - 254    |y        |y        |n        |");
-            Console.WriteLine("|Color Temperature |ct  |153 - 500  |y        |y        |n        |");
+            Console.WriteLine("|Description       |Name | Value     |Light     |Group     |Scene     |");
+            Console.WriteLine("|------------------|-----|-----------|----------|----------|----------|");
+            Console.WriteLine("|Object*           |     |           |-light.hue|-group.hue|-scene.hue|");
+            Console.WriteLine("|ID*               |-id  |0 - 254    |y         |y         |y         |");
+            Console.WriteLine("|On state          |-on  |0, 1       |y         |y         |n         |");
+            Console.WriteLine("|Hue               |-hue |0 - 65535  |y         |y         |n         |");
+            Console.WriteLine("|Saturation        |-sat |0 - 254    |y         |y         |n         |");
+            Console.WriteLine("|Brightness        |-bri |0 - 254    |y         |y         |n         |");
+            Console.WriteLine("|Color Temperature |-ct  |153 - 500  |y         |y         |n         |");
             Console.WriteLine("");
             Console.WriteLine("*) required parameter - y) parameter allowed - n) parameter not allowed");
             Console.WriteLine("");
@@ -184,8 +196,8 @@ namespace Rca.HueCmd
                 "In addition, further allowed parameters (y) can be appended.");
             Console.WriteLine("");
             Console.WriteLine("Example");
-            Console.WriteLine("HueCmd.exe -light.hue id=1 on=1 bri=127");
-            Console.WriteLine("This means, switch on the light with id 1 and setup the brightness to a value of 127.");
+            Console.WriteLine("HueCmd.exe -light.hue -id=1 -on=1 -bri=127");
+            Console.WriteLine("This means, switch on the light with ID 1 and setup the brightness to a value of 127.");
         }
     }
 }
