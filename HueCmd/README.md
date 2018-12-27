@@ -35,10 +35,13 @@ The program must be started with at least the required parameters (:warning:). A
 
 :warning: required parameter &nbsp; :heavy_check_mark: parameter allowed &nbsp; :x: parameter not allowed
 
-### Example
-`HueCmd.exe -light.hue -id=1 -on=1 -bri=127` This means, switch on the light with ID 1 and setup the brightness to a value of 127.
+### Examples
 
-### Windows Shortcut
+#### Command Line
+`HueCmd.exe -light.hue -id=1 -on=1 -bri=127`
+This means, switch on the light with ID 1 and setup the brightness to a value of 127.
+
+#### Windows Shortcut
 You can obtain this parameters also with a windows shortcut.
 
 
