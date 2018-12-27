@@ -1,5 +1,5 @@
 # HueCmd
-Control your Philips Hue system with simple shell commands or Windows shortcuts.
+Control your Philips Hue system with simple Windows shortcuts or from the command line.
 
 
 ## How to use
@@ -40,6 +40,7 @@ The program must be started with at least the required parameters (:warning:). A
 
 ### Windows Shortcut
 You can obtain this parameters also with a windows shortcut.
+
 ![HueCmd example shortcut](../Images/HueCmdExampleShortcut.PNG)
 
 ## Releases
