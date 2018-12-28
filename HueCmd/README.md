@@ -16,7 +16,7 @@ This file have one root node `<HueHookSettings>`, which have two __required__ ch
 |`<BridgeIp>`       |IP address of the Philips Hue Bridge                 |
 |`<BridgeUsername>` |authorized user on the Philips Hue Bridge*           |
 
-An example you can find under [ExampleData/HueHookSettings.xml](https://github.com/rmmlr/HueHook/blob/master/ExampleData/HueCmdSettings.xml).
+An example you can find under [ExampleData/HueCmdSettings.xml](https://github.com/rmmlr/HueHook/blob/master/ExampleData/HueCmdSettings.xml).
 
 \* to get an new username see the [Getting Started](https://developers.meethue.com/login/) article on the *hue developer program*.
 
