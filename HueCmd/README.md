@@ -4,7 +4,7 @@ Control your Philips Hue system with simple Windows shortcuts or from the comman
 
 ## How to use
 
-Before the first program start, a settings file must be created. You can modify the example file, found in [../ExampleData/HueCmdSettings.xml](https://github.com/rmmlr/HueHook/blob/master/ExampleData/HueCmdSettings.xml). The file must be in the same directory as the program and named `HueCmdSettings.xml`. See next point [Settings](#settings) for detailed informations.
+Before the first program start, a settings file must be created. You can modify the example file, found in [../ExampleData/HueCmdSettings.xml](https://github.com/100prznt/HueHook/blob/master/ExampleData/HueCmdSettings.xml). The file must be in the same directory as the program and named `HueCmdSettings.xml`. See next point [Settings](#settings) for detailed informations.
 
 
 ### Settings
@@ -16,7 +16,7 @@ This file have one root node `<HueHookSettings>`, which have two __required__ ch
 |`<BridgeIp>`       |IP address of the Philips Hue Bridge                 |
 |`<BridgeUsername>` |authorized user on the Philips Hue Bridge*           |
 
-An example you can find under [ExampleData/HueCmdSettings.xml](https://github.com/rmmlr/HueHook/blob/master/ExampleData/HueCmdSettings.xml).
+An example you can find under [ExampleData/HueCmdSettings.xml](https://github.com/100prznt/HueHook/blob/master/ExampleData/HueCmdSettings.xml).
 
 \* to get an new username see the [Getting Started](https://developers.meethue.com/login/) article on the *hue developer program*.
 
@@ -49,17 +49,17 @@ You can obtain this parameters also with a windows shortcut.
 ![HueCmd example shortcut](../Images/HueCmdExampleShortcut.PNG)
 
 ## Releases
-This program is part of the [HueHook](https://github.com/rmmlr/huehook) project. You can find the release in the [HueHook Release](https://github.com/rmmlr/huehook/releases)
+This program is part of the [HueHook](https://github.com/rmmlr/huehook) project. You can find the release in the [HueHook Release](https://github.com/100prznt/huehook/releases)
 
-[![GitHub Release](https://img.shields.io/github/release/rmmlr/huehook.svg)](https://github.com/rmmlr/huehook/releases/latest)
+[![GitHub Release](https://img.shields.io/github/release/rmmlr/huehook.svg)](https://github.com/100prznt/huehook/releases/latest)
 
-More details you can find under: [HueHook Releases](https://github.com/rmmlr/huehook#releases)
+More details you can find under: [HueHook Releases](https://github.com/100prznt/HueHook#releases)
 
 ## Credits
 
-* **Elias Ruemmler** - *Initial work* - [rmmlr](https://github.com/rmmlr)
+* **Elias Ruemmler** - *Initial work* - [100prznt](https://github.com/100prznt)
 
-Under [Contributors](https://github.com/rmmlr/HueHook/contributors) you can see more project supporter.
+Under [Contributors](https://github.com/100prznt/HueHook/contributors) you can see more project supporter.
 
 ### Open Source Project Credits
 
@@ -68,6 +68,6 @@ Under [Contributors](https://github.com/rmmlr/HueHook/contributors) you can see 
 ## License
 
 This project (HueHook) is licensed under  [MIT License](http://www.opensource.org/licenses/mit-license.php "Read more about the MIT license form").  
-Refer to [LICENSE](https://github.com/rmmlr/HueHook/blob/master/LICENSE.txt) for more information.
+Refer to [LICENSE](https://github.com/100prznt/HueHook/blob/master/LICENSE.txt) for more information.
 
-[![license](https://img.shields.io/github/license/rmmlr/HueHook.svg)](https://github.com/rmmlr/HueHook/blob/master/LICENSE.txt) 
+[![license](https://img.shields.io/github/license/100prznt/HueHook.svg)](https://github.com/100prznt/HueHook/blob/master/LICENSE.txt) 
