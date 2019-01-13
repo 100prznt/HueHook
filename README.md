@@ -8,10 +8,10 @@ You can find a seperate [README.md](HueCmd/README.md) for `HueCmd`, now. Browse 
 
 ### Start the program
 
-#### Since version [1.0.19](https://github.com/rmmlr/HueHook/releases/tag/1.0.19)
-Before the first program start, a settings file must be created. You can modify the example file, found in [ExampleData/HueHookSettings.xml](https://github.com/rmmlr/HueHook/blob/master/ExampleData/HueHookSettings.xml). The file must be in the same directory as the program and named `HueHookSettings.xml`. See next point [Settings](#settings) for detailed informations.
+#### Since version [1.0.19](https://github.com/100prznt/HueHook/releases/tag/1.0.19)
+Before the first program start, a settings file must be created. You can modify the example file, found in [ExampleData/HueHookSettings.xml](https://github.com/100prznt/HueHook/blob/master/ExampleData/HueHookSettings.xml). The file must be in the same directory as the program and named `HueHookSettings.xml`. See next point [Settings](#settings) for detailed informations.
 
-#### Up to version [1.0.18](https://github.com/rmmlr/HueHook/releases/tag/1.0.18)
+#### Up to version [1.0.18](https://github.com/100prznt/HueHook/releases/tag/1.0.18)
 Run the HueHookServer.exe with 2 start parameters.
 * parameter 1: IP of the hue-bridge
 * parameter 2: authorized username to access the bridge*
@@ -32,7 +32,7 @@ This file have one root node `<HueHookSettings>`, which have several child nodes
 
 :warning: required setting
 
-An example you can find under [ExampleData/HueHookSettings.xml](https://github.com/rmmlr/HueHook/blob/master/ExampleData/HueHookSettings.xml).
+An example you can find under [ExampleData/HueHookSettings.xml](https://github.com/100prznt/HueHook/blob/master/ExampleData/HueHookSettings.xml).
 
 \* to get an new username see the [Getting Started](https://developers.meethue.com/login/) article on the *hue developer program*.
 
@@ -61,26 +61,26 @@ The URL must at least be made up of the required parameters (:warning:). In addi
 The url `http://192.168.0.1/light.hue?id=1&on=1&bri=127` means, switch on the light with id 1 and setup the brightness to a value of 127.
 
 #### Security
-* Since version [1.0.14](https://github.com/rmmlr/HueHook/releases/tag/1.0.14) access is only allowed from the same computer on which the program is running.
-* Since version [1.0.15](https://github.com/rmmlr/HueHook/releases/tag/1.0.15) access is managed by a whitlist file, this file contains whitlisted ip-addresses (each per line). The file must be in the same directory as the program and named `ip-whitelist.txt`. An example you can find under [ExampleData](https://github.com/rmmlr/HueHook/blob/master/ExampleData).
-* Since version [1.0.19](https://github.com/rmmlr/HueHook/releases/tag/1.0.19) the whitelist is defined in the settings file. See [Since version 1.0.19](https://github.com/rmmlr/HueHook/blob/develop/README.md#since-version-1019).
+* Since version [1.0.14](https://github.com/100prznt/HueHook/releases/tag/1.0.14) access is only allowed from the same computer on which the program is running.
+* Since version [1.0.15](https://github.com/100prznt/HueHook/releases/tag/1.0.15) access is managed by a whitlist file, this file contains whitlisted ip-addresses (each per line). The file must be in the same directory as the program and named `ip-whitelist.txt`. An example you can find under [ExampleData](https://github.com/100prznt/HueHook/blob/master/ExampleData).
+* Since version [1.0.19](https://github.com/100prznt/HueHook/releases/tag/1.0.19) the whitelist is defined in the settings file. See [Since version 1.0.19](https://github.com/100prznt/HueHook/blob/develop/README.md#since-version-1019).
 
 ## Releases
-This project build on the continuous integration (CI) platform [AppVeyor](https://www.appveyor.com/) and released in the [Release-Feed](https://github.com/rmmlr/HueHook/releases).
+This project build on the continuous integration (CI) platform [AppVeyor](https://www.appveyor.com/) and released in the [Release-Feed](https://github.com/100prznt/HueHook/releases).
 
-[![AppVeyor Build](https://img.shields.io/appveyor/ci/rmmlr/huehook.svg)](https://ci.appveyor.com/project/rmmlr/huehook)  
-[![AppVeyor Tests](https://img.shields.io/appveyor/tests/rmmlr/HueHook/master.svg)](https://ci.appveyor.com/project/rmmlr/HueHook/build/tests)
+[![AppVeyor Build](https://img.shields.io/appveyor/ci/100prznt/huehook.svg)](https://ci.appveyor.com/project/100prznt/huehook)  
+[![AppVeyor Tests](https://img.shields.io/appveyor/tests/100prznt/HueHook/master.svg)](https://ci.appveyor.com/project/100prznt/HueHook/build/tests)
 
-[![GitHub Release](https://img.shields.io/github/release/rmmlr/huehook.svg)](https://github.com/rmmlr/huehook/releases/latest)  
-[![GitHub (Pre-)Release](https://img.shields.io/github/release/rmmlr/huehook/all.svg)](https://github.com/rmmlr/huehook/releases) (Pre-)Release
+[![GitHub Release](https://img.shields.io/github/release/100prznt/huehook.svg)](https://github.com/100prznt/huehook/releases/latest)  
+[![GitHub (Pre-)Release](https://img.shields.io/github/release/100prznt/huehook/all.svg)](https://github.com/100prznt/huehook/releases) (Pre-)Release
 
 
 
 ## Credits
 
-* **Elias Ruemmler** - *Initial work* - [rmmlr](https://github.com/rmmlr)
+* **Elias Ruemmler** - *Initial work* - [100prznt](https://github.com/100prznt)
 
-Under [Contributors](https://github.com/rmmlr/HueHook/contributors) you can see more project supporter.
+Under [Contributors](https://github.com/100prznt/HueHook/contributors) you can see more project supporter.
 
 ### Open Source Project Credits
 
@@ -89,6 +89,6 @@ Under [Contributors](https://github.com/rmmlr/HueHook/contributors) you can see 
 ## License
 
 This project (HueHook) is licensed under  [MIT License](http://www.opensource.org/licenses/mit-license.php "Read more about the MIT license form").  
-Refer to [LICENSE](https://github.com/rmmlr/HueHook/blob/master/LICENSE.txt) for more information.
+Refer to [LICENSE](https://github.com/100prznt/HueHook/blob/master/LICENSE.txt) for more information.
 
-[![license](https://img.shields.io/github/license/rmmlr/HueHook.svg)](https://github.com/rmmlr/HueHook/blob/master/LICENSE.txt) 
+[![license](https://img.shields.io/github/license/100prznt/HueHook.svg)](https://github.com/100prznt/HueHook/blob/master/LICENSE.txt) 
