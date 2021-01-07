@@ -18,7 +18,7 @@ This file have one root node `<HueHookSettings>`, which have two __required__ ch
 
 An example you can find under [ExampleData/HueCmdSettings.xml](https://github.com/100prznt/HueHook/blob/master/ExampleData/HueCmdSettings.xml).
 
-\* to get an new username see the [Getting Started](https://developers.meethue.com/login/) article on the *hue developer program*.
+\* to get an new username see the [Getting Started](https://100prznt.de/philips-hue/api/) article on my blog.
 
 
 The program must be started with at least the required parameters (:warning:). And one or more further allowed parameters (:heavy_check_mark:) can be appended.
