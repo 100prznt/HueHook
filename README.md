@@ -34,7 +34,7 @@ This file have one root node `<HueHookSettings>`, which have several child nodes
 
 An example you can find under [ExampleData/HueHookSettings.xml](https://github.com/100prznt/HueHook/blob/master/ExampleData/HueHookSettings.xml).
 
-\* to get an new username see the [Getting Started](https://developers.meethue.com/login/) article on the *hue developer program*.
+\* to get an new username see the [Getting Started](https://100prznt.de/philips-hue/api/) article on my blog.
 
 
 After successfully initialization the programm prints the server address (ip and port).
