@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
-[assembly: AssemblyTitle("HueHookServer")]
-[assembly: AssemblyDescription("Control your Philips Hue system with simple HTTP GET requests.\nFor more informations visit: https://github.com/rmmlr/HueHook")]
+[assembly: AssemblyTitle("HueHook Server")]
+[assembly: AssemblyDescription("Control your Philips Hue system with simple HTTP GET requests.\nFor more informations visit: https://github.com/100prznt/HueHook")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("RC-Art Solutions")]
-[assembly: AssemblyProduct("HueHookServer")]
-[assembly: AssemblyCopyright("Copyright © RC-Art Solutions 2018")]
+[assembly: AssemblyProduct("HueHook Server")]
+[assembly: AssemblyCopyright("Copyright © RC-Art Solutions 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
