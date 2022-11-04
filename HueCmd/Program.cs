@@ -23,6 +23,8 @@ namespace Rca.HueCmd
 
             Hue m_HueClient = new Hue();
 
+            bool m_DebugModeActive = false;
+
             #region Startup
 
             var versionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
@@ -55,7 +57,11 @@ namespace Rca.HueCmd
 
             foreach (var arg in args)
             {
-                if (arg.StartsWith("-"))
+                if (string.Equals(arg, "-debug", StringComparison.OrdinalIgnoreCase))
+                {
+                    m_DebugModeActive = true;
+                }
+                else if (arg.StartsWith("-"))
                 {
                     if (arg.EndsWith(".hue"))
                     {
@@ -95,6 +101,18 @@ namespace Rca.HueCmd
                 Console.Write("Program is closing...");
                 Console.ReadKey();
                 return;
+            }
+            else
+            {
+                Console.WriteLine("Parameters found:");
+                Console.WriteLine();
+
+                foreach (var p in parameters.AllKeys)
+                {
+                    Console.WriteLine(parameters.)
+                }
+                Console.WriteLine();
+                Console.WriteLine();
             }
             
             //TODO: verify parameters
